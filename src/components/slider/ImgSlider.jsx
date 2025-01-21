@@ -19,16 +19,16 @@ const ImgSlider = () => {
   return (
     <>
       <Slider {...settings}>
-        <div className="flex justify-center items-center p-4">
+        <div className="flex justify-center items-center p-4 focus:outline-0">
           <img src={slider1} alt="" />
         </div>
-        <div className="flex items-center justify-center p-4 ">
-          <img src={slider2} alt="" className="focus:border-none" />
+        <div className="flex items-center justify-center p-4 focus:outline-0">
+          <img src={slider2} alt="" />
         </div>
-        <div className="flex items-center justify-center p-4">
+        <div className="flex items-center justify-center p-4 focus:outline-0">
           <img src={slider3} alt="" />
         </div>
-        <div className="flex items-center justify-center p-4">
+        <div className="flex items-center justify-center p-4 focus:outline-0">
           <img src={slider2} alt="" />
         </div>
       </Slider>
