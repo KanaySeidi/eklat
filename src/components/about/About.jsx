@@ -3,7 +3,7 @@ import ImgSlider from "../slider/ImgSlider";
 const About = () => {
   return (
     <>
-      <div className="w-full mt-40">
+      <div className="w-full mt-20">
         <div className="w-11/12 mx-auto ">
           <div className="w-full flex  ">
             <h1 className="w-1/5 text-2xl font-black">О Нас</h1>
