@@ -5,6 +5,7 @@ import Header from "../../components/header/Header";
 import Info from "../../components/info/Info";
 import Intro from "../../components/intro/Intro";
 import Products from "../../components/products/Products";
+import Repair from "../../components/repair/Repair";
 import Workshop from "../../components/workshop/Workshop";
 
 const Main = () => {
@@ -15,6 +16,7 @@ const Main = () => {
       <About />
       <Catalog />
       <Products />
+      <Repair />
       <Workshop />
       <Info />
       <Footer />

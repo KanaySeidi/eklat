@@ -9,6 +9,7 @@ import slider4 from "./image/slider4.png";
 import stol from "./image/stol.png";
 import workshop from "./image/workshop.png";
 import adress from "./image/adress.png";
+import repair from "./image/repair.png";
 import contacts from "./image/contacts.png";
 import phone from "./icon/phone.svg";
 import wats from "./icon/wats.svg";
@@ -34,4 +35,5 @@ export const imgImports = {
   tg,
   ig,
   logoB,
+  repair,
 };
