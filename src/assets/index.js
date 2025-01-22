@@ -8,6 +8,13 @@ import slider3 from "./image/slider3.png";
 import slider4 from "./image/slider4.png";
 import stol from "./image/stol.png";
 import workshop from "./image/workshop.png";
+import adress from "./image/adress.png";
+import contacts from "./image/contacts.png";
+import phone from "./icon/phone.svg";
+import wats from "./icon/wats.svg";
+import ig from "./icon/ig.svg";
+import tg from "./icon/tg.svg";
+import logoB from "./icon/logoB.png";
 
 export const imgImports = {
   logo,
@@ -20,4 +27,11 @@ export const imgImports = {
   slider4,
   stol,
   workshop,
+  adress,
+  contacts,
+  phone,
+  wats,
+  tg,
+  ig,
+  logoB,
 };

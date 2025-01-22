@@ -1,5 +1,6 @@
 import About from "../../components/about/About";
 import Catalog from "../../components/catalog/Catalog";
+import Footer from "../../components/footer/Footer";
 import Header from "../../components/header/Header";
 import Info from "../../components/info/Info";
 import Intro from "../../components/intro/Intro";
@@ -16,6 +17,7 @@ const Main = () => {
       <Products />
       <Workshop />
       <Info />
+      <Footer />
     </div>
   );
 };
