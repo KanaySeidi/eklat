@@ -15,7 +15,9 @@ import wats from "./icon/wats.svg";
 import ig from "./icon/ig.svg";
 import tg from "./icon/tg.svg";
 import logoB from "./icon/logoB.png";
+import logoM from "./icon/logoB.svg";
 import contacts from "./image/Contacts.png";
+import eklatFoot from "./icon/eklatFoot.svg";
 
 export const imgImports = {
   logo,
@@ -36,4 +38,6 @@ export const imgImports = {
   ig,
   logoB,
   repair,
+  logoM,
+  eklatFoot,
 };
