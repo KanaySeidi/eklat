@@ -1,13 +1,13 @@
 import { imgImports } from "../../assets";
 
 const Footer = () => {
-  const { ig, tg, wats, eklatFoot } = imgImports;
+  const { ig, tg, wats, logoFoot } = imgImports;
   return (
     <>
       <div className="w-full h-96 mt-20 bg-gray-300">
         <div className="w-11/12  mx-auto pt-7 flex flex-col">
           <div className="flex justify-between">
-            <img src={eklatFoot} alt="" className="w-auto h-20" />
+            <img src={logoFoot} alt="" className="w-auto h-20" />
             <input
               type="text"
               placeholder="Оставить заявку на покупку, бронь"

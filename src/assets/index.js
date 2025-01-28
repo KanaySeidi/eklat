@@ -17,7 +17,7 @@ import tg from "./icon/tg.svg";
 import logoB from "./icon/logoB.png";
 import logoM from "./icon/logoB.svg";
 import contacts from "./image/Contacts.png";
-import eklatFoot from "./icon/eklatFoot.svg";
+import logoFoot from "./image/EklatFoot.svg";
 
 export const imgImports = {
   logo,
@@ -39,5 +39,5 @@ export const imgImports = {
   logoB,
   repair,
   logoM,
-  eklatFoot,
+  logoFoot,
 };
