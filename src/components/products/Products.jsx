@@ -1,7 +1,16 @@
-import { imgImports } from "../../assets";
+import { useEffect } from "react";
+import useProductStore from "../../api/product";
 
 const Products = () => {
-  const { stol } = imgImports;
+  const { fetchProduct, err, product } = useProductStore();
+
+  useEffect(() => {
+    fetchProduct();
+  }, []);
+
+  if (err) {
+    return <h2>Ошибка загрузки: {err}</h2>;
+  }
   return (
     <>
       <div className="w-full">
@@ -15,54 +24,30 @@ const Products = () => {
             </p>
           </div>
           <div className="flex flex-wrap justify-center lg:justify-between mt-8">
-            <div>
-              <img src={stol} alt="" />
-              <div className="h-20 flex flex-col justify-between mt-5">
-                <p className="font-bold text-xl">Кресло</p>
-                <div className="flex gap-5 items-center h-auto">
-                  <p className="font-semibold text-lg">14000 сом</p>
-                  <p className="line-through text-lg text-gray-500">
-                    19999 сом
-                  </p>
+            {product?.results?.length > 0 ? (
+              product.results.map((item) => (
+                <div key={item.id}>
+                  <img
+                    src={item.image}
+                    alt={item.image}
+                    className="w-72 h-52"
+                  />
+                  <div className="h-20 flex flex-col justify-between mt-5">
+                    <p className="font-bold text-xl">{item.title}</p>
+                    <div className="flex gap-5 items-center h-auto">
+                      <p className="font-semibold text-lg">
+                        {item.discount_price} сом
+                      </p>
+                      <p className="line-through text-lg text-gray-500">
+                        {item.price} сом
+                      </p>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            </div>
-            <div>
-              <img src={stol} alt="" />
-              <div className="h-20 flex flex-col justify-between mt-5">
-                <p className="font-bold text-xl">Кресло</p>
-                <div className="flex gap-5 items-center h-auto">
-                  <p className="font-semibold text-lg">14000 сом</p>
-                  <p className="line-through text-lg text-gray-500">
-                    19999 сом
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <img src={stol} alt="" />
-              <div className="h-20 flex flex-col justify-between mt-5">
-                <p className="font-bold text-xl">Кресло</p>
-                <div className="flex gap-5 items-center h-auto">
-                  <p className="font-semibold text-lg">14000 сом</p>
-                  <p className="line-through text-lg text-gray-500">
-                    19999 сом
-                  </p>
-                </div>
-              </div>
-            </div>
-            <div>
-              <img src={stol} alt="" />
-              <div className="h-20 flex flex-col justify-between mt-5">
-                <p className="font-bold text-xl">Кресло</p>
-                <div className="flex gap-5 items-center h-auto">
-                  <p className="font-semibold text-lg">14000 сом</p>
-                  <p className="line-through text-lg text-gray-500">
-                    19999 сом
-                  </p>
-                </div>
-              </div>
-            </div>
+              ))
+            ) : (
+              <p>Загрузка...</p>
+            )}
           </div>
         </div>
       </div>

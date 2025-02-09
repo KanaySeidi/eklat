@@ -1,10 +1,15 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { imgImports } from "../../assets";
+import useGalleryStore from "../../api/gallery";
+import { useEffect } from "react";
 
 const ImgSlider = () => {
-  const { slider1, slider2, slider3 } = imgImports;
+  const { gallery, fetchGallery } = useGalleryStore();
+
+  useEffect(() => {
+    fetchGallery();
+  }, []);
 
   const settings = {
     autoplay: true,
@@ -19,18 +24,20 @@ const ImgSlider = () => {
   return (
     <>
       <Slider {...settings}>
-        <div className="flex justify-center items-center p-4 focus:outline-0">
-          <img src={slider1} alt="" />
-        </div>
-        <div className="flex items-center justify-center p-4 focus:outline-0">
-          <img src={slider2} alt="" />
-        </div>
-        <div className="flex items-center justify-center p-4 focus:outline-0">
-          <img src={slider3} alt="" />
-        </div>
-        <div className="flex items-center justify-center p-4 focus:outline-0">
-          <img src={slider2} alt="" />
-        </div>
+        {gallery.length > 0 ? (
+          gallery.map((img, index) => (
+            <div
+              key={index}
+              className="flex justify-center items-center p-4 focus:outline-0"
+            >
+              <img src={img} alt="" />
+            </div>
+          ))
+        ) : (
+          <div className="flex justify-center items-center p-4 focus:outline-0">
+            <h2>Загрузка</h2>
+          </div>
+        )}
       </Slider>
     </>
   );

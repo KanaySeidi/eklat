@@ -1,50 +1,16 @@
-import { imgImports } from "../../assets";
+import { useEffect } from "react";
+import useCatalogStore from "../../api/catalog";
 
 const Catalog = () => {
-  const { slider1, slider2, slider3 } = imgImports;
+  const { fetchCatalog, catalog, err } = useCatalogStore();
 
-  const cards = [
-    {
-      id: 1,
-      title: "Мебель",
-      img: slider1,
-    },
-    {
-      id: 2,
-      title: "Мебель",
-      img: slider2,
-    },
-    {
-      id: 3,
-      title: "Мебель",
-      img: slider3,
-    },
-    {
-      id: 4,
-      title: "Мебель",
-      img: slider1,
-    },
-    {
-      id: 5,
-      title: "Мебель",
-      img: slider2,
-    },
-    {
-      id: 6,
-      title: "Мебель",
-      img: slider1,
-    },
-    {
-      id: 7,
-      title: "Мебель",
-      img: slider3,
-    },
-    {
-      id: 8,
-      title: "Мебель",
-      img: slider2,
-    },
-  ];
+  useEffect(() => {
+    fetchCatalog();
+  }, []);
+
+  if (err) {
+    return <h2>Ошибка загрузки: {err}</h2>;
+  }
 
   return (
     <>
@@ -58,18 +24,23 @@ const Catalog = () => {
               Исследуй наш богатый выбор мебели
             </p>
           </div>
-          <div className="px-20 flex flex-wrap justify-center lg:justify-between gap-5">
-            {cards.map((item) => (
-              <div
-                key={item.slider3}
-                className="relative rounded-xl bg-red-500"
-              >
-                <img src={item.img} alt="" className="w-82 h-58" />
-                <p className="w-40 h-10 flex justify-center items-center rounded-3xl bg-white absolute top-2 left-2 ">
-                  {item.title}
-                </p>
-              </div>
-            ))}
+          <div className="px-16 flex flex-wrap justify-center lg:justify-between gap-5">
+            {catalog?.results?.length > 0 ? (
+              catalog.results.map((item) => (
+                <div key={item.id} className="relative rounded-xl">
+                  <img
+                    src={item.image}
+                    alt={item.title}
+                    className="w-72 h-56 object-cover"
+                  />
+                  <p className="px-8 py-2 flex justify-center items-center rounded-3xl bg-white absolute top-2 left-2 break-words text-center">
+                    {item.title}
+                  </p>
+                </div>
+              ))
+            ) : (
+              <p>Загрузка...</p>
+            )}
           </div>
         </div>
       </div>
