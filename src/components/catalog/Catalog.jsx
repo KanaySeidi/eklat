@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import useCatalogStore from "../../api/catalog";
+import Error from "../error/Error";
 
 const Catalog = () => {
   const { fetchCatalog, catalog, err } = useCatalogStore();
@@ -9,12 +10,12 @@ const Catalog = () => {
   }, []);
 
   if (err) {
-    return <h2>Ошибка загрузки: {err}</h2>;
+    return <Error message={err} />;
   }
 
   return (
     <>
-      <div className="w-full h-auto mt-20">
+      <div className="w-full h-auto mt-20" id="catalog">
         <div className="w-11/12 mx-auto">
           <div className="w-full flex flex-col justify-center items-center">
             <p className="w-52 h-12 border border-black rounded-3xl flex justify-center items-center mb-8 cursor-pointer">

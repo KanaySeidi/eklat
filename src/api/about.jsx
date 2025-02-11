@@ -11,7 +11,6 @@ const useAboutStore = create((set) => ({
       const res = await axios(`${API}/api/about-us/`);
       set({ about: res.data, err: null });
     } catch (err) {
-      console.log("Короче ошибена", err);
       set({ err: err.message });
     }
   },

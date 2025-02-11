@@ -1,7 +1,17 @@
-import { imgImports } from "../../assets";
+import { useEffect } from "react";
+import useRepairStore from "../../api/repair";
+import Error from "../error/Error";
 
 const Repair = () => {
-  const { repair } = imgImports;
+  const { repair, err, fetchRepair } = useRepairStore();
+
+  useEffect(() => {
+    fetchRepair();
+  }, []);
+
+  if (err) {
+    return <Error message={err} />;
+  }
 
   return (
     <>
@@ -12,34 +22,26 @@ const Repair = () => {
               Ремонт кресел
             </p>
             <div className="flex flex-col  text-center">
-              <p className="text-4xl font-medium mb-8">Проблемы с креслом?</p>
-              <p className="text-4xl font-medium mb-8">
-                Мы поможем вернуть ему новый вид и комфорт!
+              <p className="text-lg md:text-4xl font-medium mb-8">
+                {repair.title}
               </p>
             </div>
           </div>
-          <div className="flex justify-between mt-5">
-            <div className="w-1/2 h-auto flex flex-col justify-between">
-              <div className="flex flex-col justify-between gap-5 text-lg font-medium">
-                <p>
-                  Наши мастера профессионально занимаются ремонтом и
-                  восстановлением кресел любого типа.
-                </p>
-                <p>
-                  Мы предлагаем полный спектр услуг: от замены обивки и ремонта
-                  механизмов до реставрации каркаса.{" "}
-                </p>
-                <p>
-                  Если ваше кресло потеряло первоначальный вид или перестало
-                  быть удобным, мы вернем ему прежнюю форму и функциональность.
-                </p>
+          <div className=" flex flex-col md:flex-row justify-between md:justify-center mt-5 ">
+            <div className="w-full md:w-1/2 h-auto flex flex-col justify-between  gap-2 md:gap-0">
+              <div className="flex flex-col justify-between gap-5 text-xs sm:text-base md:text-base lg:text-lg font-medium mb-0 md:mb-2">
+                <p>{repair.description}</p>
               </div>
-              <p className="text-[21px] font-bold">
-                Доверьте ремонт профессионалам, и ваше кресло будет как новое!
+              <p className="text-xs sm:text-base md:text-base lg-text-[21px] font-bold">
+                {repair.description2}
               </p>
             </div>
-            <div>
-              <img src={repair} alt="" />
+            <div className="w-full md:w-1/2 mt-10 md:mt-0">
+              <img
+                src={repair.image}
+                alt=""
+                className="w-full h-full object-contain"
+              />
             </div>
           </div>
         </div>
