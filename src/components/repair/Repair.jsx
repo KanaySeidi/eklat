@@ -32,7 +32,10 @@ const Repair = () => {
               <div className="flex flex-col justify-between gap-5 text-xs sm:text-base md:text-base lg:text-lg font-medium mb-0 md:mb-2">
                 <p>{repair.description}</p>
               </div>
-              <p className="text-xs sm:text-base md:text-base lg-text-[21px] font-bold">
+              <p className="text-xs sm:text-base md:text-base lg:text-3xl">
+                0707 911 317
+              </p>
+              <p className="text-xs sm:text-base md:text-base lg:text-[21px] font-bold">
                 {repair.description2}
               </p>
             </div>

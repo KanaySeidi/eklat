@@ -33,13 +33,21 @@ const Info = () => {
                 мы подберем удобное время для консультации.
               </p>
             </div>
-            <div className="h-96 mt-10 md:mt-0 md:flex md:justify-center ">
-              <img src={adress} alt="" className="h-72 md:h-96" />
+            <div className="w-full h-96 mt-10 lg:w-96">
+              <img
+                src={adress}
+                alt=""
+                className="w-full h-full object-contain md:h-96"
+              />
             </div>
           </div>
           <div className="w-full flex flex-col md:flex-row justify-between mt-20">
-            <div className="h-96">
-              <img src={contacts} alt="" className="h-72 md:h-96" />
+            <div className="w-full h-96 lg:w-96">
+              <img
+                src={contacts}
+                alt=""
+                className="w-full h-full object-contain md:h-96"
+              />
             </div>
             <div className="w-full md:w-1/2 h-96 flex flex-col justify-between">
               <div className="w-28 h-10 border border-black rounded-3xl flex justify-center items-center mt-10 mb-8 cursor-pointer">
@@ -50,21 +58,29 @@ const Info = () => {
                 услугах, мы всегда рады помочь! Мы доступны по различным каналам
                 связи:
               </p>
-              <div className="flex flex-col md:flex-row w-full justify-between">
-                <div className="flex flex-col gap-10 mt-5 md:mt-0">
-                  <p className="text-2xl">Контакты</p>
-                  <div className="flex gap-2">
-                    <img src={phone} alt="" />
-                    <p className="text-xl font-medium">{contact.phone}</p>
+              <div className="flex w-full justify-between mt-5">
+                <div className="flex flex-col gap-10">
+                  <p className="text-xl md:text-base lg:text-2xl">Контакты</p>
+                  <div className="flex gap-4">
+                    <img src={phone} alt="" width={30} />
+                    <div className="text-base md:text-base lg:text-xl">
+                      <p>{contact.phone}</p>
+                      <p>0999 911 317</p>
+                      <p>0557 911 317</p>
+                    </div>
                   </div>
-                  <div className="flex gap-2">
-                    <img src={wats} alt="" />
-                    <p className="text-xl font-medium">{contact.phone}</p>
+                  <div className="flex gap-4">
+                    <img src={wats} alt="" width={30} />
+                    <p className="text-base md:text-base lg:text-2xl font-medium">
+                      {contact.phone}
+                    </p>
                   </div>
                 </div>
-                <div className="mr-20 flex flex-col gap-10 mt-10 md:mt-0">
-                  <p className="text-2xl">Мы в соц.сетях</p>
-                  <div className="flex justify-between">
+                <div className="mr-0 md:mr-0 lg:mr-20 flex flex-col gap-10  md:mt-0">
+                  <p className="text-xl md:text-base lg:text-2xl">
+                    Мы в соц.сетях
+                  </p>
+                  <div className="flex flex-col md:flex-col lg:flex-row justify-between items-center gap-3 md:gap-3 lg:gap-0">
                     <a
                       href={contact.instagram}
                       target="_blank"

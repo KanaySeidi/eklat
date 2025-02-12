@@ -85,11 +85,11 @@ const Header = () => {
           </div>
         )}
 
-        <div className="mx-2">
+        <div className="">
           <img
             src={logoM}
             alt="Логотип"
-            className={`w-96 transition-all duration-700 ease-in ${
+            className={`w-80 ml-10 transition-all duration-700 ease-in ${
               isScroll ? "h-14" : "h-16"
             }`}
           />
@@ -133,16 +133,36 @@ const Header = () => {
 
       {isMobile && isMenuOpen && (
         <div className="absolute top-16 left-0 w-full bg-black bg-opacity-90 flex flex-col items-center py-5 gap-4 text-white text-base md:text-md">
-          <p>Главная</p>
+          <p
+            onClick={() => scrollToSection("main")}
+            className="cursor-pointer w-14"
+          >
+            Главная
+          </p>
           <p
             onClick={() => scrollToSection("about")}
-            className="cursor-pointer"
+            className="cursor-pointer w-14"
           >
             О Нас
           </p>
-          <p>Мастерская</p>
-          <p>Каталог</p>
-          <p>Контакты</p>
+          <p
+            onClick={() => scrollToSection("workshop")}
+            className="cursor-pointer w-14"
+          >
+            Мастерская
+          </p>
+          <p
+            onClick={() => scrollToSection("catalog")}
+            className="cursor-pointer w-14"
+          >
+            Каталог
+          </p>
+          <p
+            onClick={() => scrollToSection("contact")}
+            className="cursor-pointer w-14"
+          >
+            Контакты
+          </p>
         </div>
       )}
     </div>

@@ -16,32 +16,65 @@ const Footer = () => {
     return <Error message={err} />;
   }
 
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      const headerHeight = 80;
+      const offsetTop = section.offsetTop - headerHeight;
+
+      window.scrollTo({
+        top: offsetTop,
+        behavior: "smooth",
+      });
+    }
+  };
+
   return (
     <>
-      <div className="w-full h-96 mt-40 md:mt-20 bg-gray-300">
+      <div className="w-full h-auto mt-40 md:mt-62 bg-gray-300">
         <div className="w-11/12  mx-auto pt-7 flex flex-col">
-          <div className="flex justify-between">
+          <div className="">
             <img src={logoFoot} alt="" className="w-auto h-20" />
-            <input
-              type="text"
-              placeholder="Оставить заявку на покупку, бронь"
-              className="w-80 pl-6 rounded-3xl text-black outline-none placeholder-black font-medium"
-            />
           </div>
-          <div className="flex justify-between items-start mt-20">
+          <div className="flex flex-wrap justify-between items-start mt-20 mb-20 gap-2 md:gap-0">
             <div>
               <p className="text-xl font-medium mb-2">Мы находимся</p>
               <p className="text-gray-500 text-lg">{contact.address}</p>
             </div>
             <div>
               <p className="text-xl font-medium mb-2">Разделы</p>
-              <ul className="text-gray-500 text-lg">
-                <li>Главная</li>
-                <li>О нас</li>
-                <li>Каталог</li>
-                <li>Мастерская</li>
-                <li>Контакты</li>
-              </ul>
+              <div className="text-gray-500 text-lg">
+                <p
+                  onClick={() => scrollToSection("main")}
+                  className="cursor-pointer w-14"
+                >
+                  Главная
+                </p>
+                <p
+                  onClick={() => scrollToSection("about")}
+                  className="cursor-pointer w-14"
+                >
+                  О Нас
+                </p>
+                <p
+                  onClick={() => scrollToSection("workshop")}
+                  className="cursor-pointer w-14"
+                >
+                  Мастерская
+                </p>
+                <p
+                  onClick={() => scrollToSection("catalog")}
+                  className="cursor-pointer w-14"
+                >
+                  Каталог
+                </p>
+                <p
+                  onClick={() => scrollToSection("contact")}
+                  className="cursor-pointer w-14"
+                >
+                  Контакты
+                </p>
+              </div>
             </div>
             <div>
               <p className="text-xl font-medium mb-2"> Контакты</p>
